@@ -13,7 +13,7 @@ resource "aws_ecs_service" "service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.target-group.id
-    container_name   = aws_ecs_task_definition.task-definition.name
+    container_name   = local.container_name
     container_port   = var.port
   }
 
