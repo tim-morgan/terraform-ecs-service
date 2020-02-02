@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "apisvc_ecsTaskExecutionRole_secrets" {
 
 # Resources
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name               = "ecsTaskExecutionRole"
+  name               = "ecsTaskExecutionRole-1"
   assume_role_policy = data.aws_iam_policy_document.ecs_task_execution_role.json
   tags = var.tags
 }
