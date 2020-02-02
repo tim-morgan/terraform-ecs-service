@@ -83,3 +83,8 @@ variable "ingress_ipv6_cidr_blocks" {
     description = "List of ingress IPv6 CIDR blocks."
     default     = null
 }
+variable "tags" {
+    type = map(string)
+    description = "Tags"
+    default = {}
+}
