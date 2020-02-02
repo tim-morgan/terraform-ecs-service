@@ -17,7 +17,5 @@ resource "aws_ecs_service" "service" {
     container_port   = var.port
   }
 
-    tags = var.tags
-
   depends_on = [aws_iam_role_policy_attachment.ecs_task_execution_role, aws_lb_listener_rule.lb_listener_rule]
 }
