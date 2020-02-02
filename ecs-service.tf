@@ -4,6 +4,7 @@ resource "aws_ecs_service" "service" {
   task_definition = aws_ecs_task_definition.task-definition.arn
   desired_count   = var.desired_count
   launch_type     = "FARGATE"
+  propagate_tags  = "SERVICE"
 
   network_configuration {
     security_groups  = [aws_security_group.ecs_tasks.id]
@@ -16,6 +17,8 @@ resource "aws_ecs_service" "service" {
     container_name   = local.container_name
     container_port   = var.port
   }
+
+    tags = var.tags
 
   depends_on = [aws_iam_role_policy_attachment.ecs_task_execution_role, aws_lb_listener_rule.lb_listener_rule]
 }

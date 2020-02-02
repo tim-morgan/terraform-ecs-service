@@ -22,6 +22,9 @@ resource "aws_lb_target_group" "target-group" {
         type = "lb_cookie"
         cookie_duration = var.lb_cookie_duration
     }
+
+    tags = var.tags
+
     lifecycle {
         create_before_destroy = true
     }

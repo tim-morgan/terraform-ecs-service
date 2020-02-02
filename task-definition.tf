@@ -6,6 +6,8 @@ resource "aws_ecs_task_definition" "task-definition" {
     memory                   = "512"
     requires_compatibilities = ["FARGATE"]
     container_definitions    = var.container_definition
+    
+    tags = var.tags
 }
 
 
