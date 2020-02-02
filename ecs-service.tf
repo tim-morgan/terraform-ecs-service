@@ -4,7 +4,6 @@ resource "aws_ecs_service" "service" {
   task_definition = aws_ecs_task_definition.task-definition.arn
   desired_count   = var.desired_count
   launch_type     = "FARGATE"
-  propagate_tags  = "SERVICE"
 
   network_configuration {
     security_groups  = [aws_security_group.ecs_tasks.id]
