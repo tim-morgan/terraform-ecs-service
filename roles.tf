@@ -23,7 +23,11 @@ data "aws_iam_policy_document" "apisvc_ecsTaskExecutionRole_secrets" {
         actions   = [ "ssm:GetParameters" ]
         resources = [ "arn:aws:ssm:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:parameter/*" ]
     }
-
+    statement {
+        effect    = "Allow"
+        actions   = [ "logs:CreateLogStream", "logs:PutLogEvents", "logs:CreateLogGroup" ]
+        resources = [ "*" ]
+    }
     /*statement {
         effect    = "Allow"
         actions   = [ "kms:Decrypt" ]
