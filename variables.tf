@@ -88,3 +88,12 @@ variable "tags" {
     description = "Tags"
     default = {}
 }
+variable "task_def_cpu_limit" {
+    type = string
+    description = "The hard limit of CPU units for the task"
+    default = "256"
+}
+variable "task_def_memory_limit" {
+    type = string
+    description = "The hard limit of memory (in MiB) to present to the task"
+}
