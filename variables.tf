@@ -97,3 +97,8 @@ variable "task_def_memory_limit" {
     type = string
     description = "The hard limit of memory (in MiB) to present to the task"
 }
+variable "assign_public_ip" {
+    type = bool
+    description = "Assign public ip to ECS task"
+    default = true
+}
