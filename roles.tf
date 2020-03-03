@@ -35,9 +35,15 @@ data "aws_iam_policy_document" "apisvc_ecsTaskExecutionRole_secrets" {
     }*/
 }
 
+
+resource "random_id" "random" {
+    byte_length = 4
+}
+
+
 # Resources
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name               = "ecsTaskExecutionRole-1"
+  name               = "ecsTaskExecutionRole-${random_id.random.hex}"
   assume_role_policy = data.aws_iam_policy_document.ecs_task_execution_role.json
   tags = var.tags
 }
