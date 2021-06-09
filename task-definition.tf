@@ -7,6 +7,14 @@ resource "aws_ecs_task_definition" "task-definition" {
     requires_compatibilities = ["FARGATE"]
     container_definitions    = var.container_definition
     
+    dynamic "volume" {
+        for_each = var.volumes
+
+        content {
+            name = volume.value
+        }
+    }
+
     tags = var.tags
 }
 

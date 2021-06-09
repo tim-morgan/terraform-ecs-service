@@ -102,3 +102,8 @@ variable "assign_public_ip" {
     description = "Assign public ip to ECS task"
     default = true
 }
+variable "volumes" {
+    type = list(string)
+    description = "Task volumes to add to the definition, which will only exist for the length of the task"
+    default = []
+}
